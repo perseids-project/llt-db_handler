@@ -1,6 +1,6 @@
 # LLT::DbHandler
 
-TODO: Write a gem description
+LLT abstraction to communicate with stem dictionaries/databases.
 
 ## Installation
 
@@ -18,7 +18,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The Prometheus Stem Dictionary comes with this gem. To use it make sure
+you have postgresql installed and a user called prometheus ready:
+
+```
+  psql
+    create user prometheus with password 'admin'
+```
+
+Create the database and seed data:
+
+```
+  rake prometheus:db:create
+  rake prometheus:db:seed
+```
+
+The database prometheus_stems will now be available.
+You might have to grant privileges to the user prometheus before going
+further:
+
+```
+  psql
+    grant all on database prometheus_stems to prometheus
+```
 
 ## Contributing
 
