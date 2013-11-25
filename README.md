@@ -1,4 +1,4 @@
-# Llt::DbHandler
+# LLT::DbHandler
 
 TODO: Write a gem description
 
