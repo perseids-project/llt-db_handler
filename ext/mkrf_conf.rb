@@ -1,4 +1,3 @@
-require 'pry'; binding.pry
 require 'rubygems/dependency_installer'
 installer = Gem::DependencyInstaller.new
 begin
