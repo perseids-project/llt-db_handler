@@ -39,10 +39,6 @@ module LLT
         self.class.loaded?
       end
 
-      def load_status(status)
-        self.class.loaded = status
-      end
-
       def direct_lookup(table, string)
         query_db(table, string)
       end
