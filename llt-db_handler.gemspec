@@ -18,6 +18,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  # Hack to allow postgres adapter installation for MRI and jruby
+  spec.extensions    = ['ext/mkrf_conf.rb']
+
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "rake"
@@ -29,5 +32,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency "llt-constants"
   spec.add_dependency "llt-form_builder"
   spec.add_dependency "llt-helpers"
-  spec.add_dependency "pg"
 end
