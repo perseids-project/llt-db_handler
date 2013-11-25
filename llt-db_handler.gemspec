@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "llt-constants"
   spec.add_dependency "llt-form_builder"
   spec.add_dependency "llt-helpers"
+  spec.add_dependency "pg"
 end
