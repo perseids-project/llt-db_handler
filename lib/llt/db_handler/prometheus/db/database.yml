@@ -1,0 +1,8 @@
+adapter: postgresql
+encoding: unicode
+database: prometheus
+pool: 20
+port: 5432
+username: prometheus
+password: admin
+host: localhost
