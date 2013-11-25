@@ -1,6 +1,6 @@
 adapter: postgresql
 encoding: unicode
-database: prometheus
+database: prometheus_stems
 pool: 20
 port: 5432
 username: prometheus
