@@ -45,6 +45,17 @@ further:
 ```
 -->
 
+```ruby
+  require 'llt/db_handler/prometheus'
+
+  db = LLT::DbHandler::Prometheus.new
+  db.count            # => returns the total number of entries
+  db.all_entries      # => returns all entries as AR models
+  db.lemma_list       # => returns an Array of lemmas as strings
+  db.lemma_list(true) # => returns detailed lemma strings
+```
+
+
 ## Contributing
 
 1. Fork it
