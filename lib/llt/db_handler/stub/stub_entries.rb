@@ -5,11 +5,13 @@ class LLT::DbHandler::Stub::StubEntries
     def setup(size = :medium)
       db_stub.stems.clear
 
-      case size
-      when :big   then big_setup
-      when :small then small_setup
-      else medium_setup
-      end
+      medium_setup
+      # not implemented yet
+      #case size
+      #when :big   then big_setup
+      #when :small then small_setup
+      #else medium_setup
+      #end
     end
 
     private
