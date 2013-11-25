@@ -38,4 +38,12 @@ describe LLT::DbHandler::Stub do
       result.first.should == :success
     end
   end
+
+  describe ".setup" do
+    it "creates stub entries as defined in stub_entries.rb" do
+      db_stub.stems.clear
+      db_stub.setup
+      db_stub.stems.should_not be_empty
+    end
+  end
 end
