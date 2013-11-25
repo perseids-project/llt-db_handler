@@ -25,7 +25,6 @@ you have postgresql installed and a user called prometheus ready:
   psql
     create user prometheus with password 'admin'
 ```
-
 Create the database and seed data:
 
 ```
@@ -34,6 +33,9 @@ Create the database and seed data:
 ```
 
 The database prometheus_stems will now be available.
+<!-->
+# This should not be needed as the db is created by the user prometheus
+anyway.
 You might have to grant privileges to the user prometheus before going
 further:
 
@@ -41,6 +43,7 @@ further:
   psql
     grant all on database prometheus_stems to prometheus
 ```
+-->
 
 ## Contributing
 
