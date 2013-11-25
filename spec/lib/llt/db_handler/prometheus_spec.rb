@@ -5,25 +5,17 @@ describe LLT::DbHandler::Prometheus do
 
   describe "#connect" do
     it "connects to the Prometheus ActiveRecord environment" do
-      db.should_receive(:load_prometheus)
+      db.stub(loaded?: false)
       db.connect
-      # the weird thing: ActiveRecord::Base.connected? ask for something else...
       StemDatabase::Db.connection.should be_true
-      db.loaded?.should be_true
     end
 
-    it "does nothing is connection is already established" do
+    it "does nothing if connection is already established" do
       # actually the stub wouldn't be needed, connection status is tracked
       # on the class level atm
-      db.stub(loaded_in_prometheus_environment?: true)
+      db.stub(loaded?: true)
       db.should_not_receive(:load_prometheus)
       db.connect
-    end
-  end
-
-  describe "#loaded?" do
-    it "returns load status" do
-      db.loaded?.should be_true
     end
   end
 

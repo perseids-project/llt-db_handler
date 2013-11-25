@@ -22,34 +22,25 @@ module LLT
       end
 
       def connect
-        unless loaded_in_prometheus_environment?
-          load_prometheus
-        end
+        load_prometheus unless loaded?
       end
 
       def load_prometheus
         begin
           require 'active_record'
+          # this is where the actual connection is established
           require 'llt/db_handler/prometheus/db/models'
-          load_status(true)
         rescue LoadError => e
           puts "DbHandler::Prometheus failed to connect: #{e}"
         end
       end
 
-      def loaded
-        self.class.loaded
+      def loaded?
+        self.class.loaded?
       end
-      alias_method :loaded?, :loaded
 
       def load_status(status)
         self.class.loaded = status
-      end
-
-      def loaded_in_prometheus_environment?
-        unless loaded?
-          load_status((defined?(Rails) && Rails.application.class.parent_name == "Prometheus"))
-        end
       end
 
       def direct_lookup(table, string)
@@ -66,12 +57,10 @@ module LLT
 
       private
 
-      def self.loaded
-        @loaded
-      end
-
-      def self.loaded=(status)
-        @loaded = status
+      def self.loaded?
+        if defined?(StemDatabase)
+          StemDatabase::Db.connection
+        end
       end
 
       def new_lookup(args)
