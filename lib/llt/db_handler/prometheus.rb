@@ -55,7 +55,7 @@ module LLT
 
       def self.loaded?
         if defined?(StemDatabase)
-          StemDatabase::Db.connection
+          StemDatabase::Db.connection rescue false
         end
       end
 

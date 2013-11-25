@@ -1,8 +1,21 @@
 require 'spec_helper'
 
 describe LLT::DbHandler::Prometheus::Stats do
-  # need to load a Prometheus instance to gain access to the db!
-  let(:stats) { LLT::DbHandler::Prometheus.new.stats }
+  # Connection to db is lazy, a Prometheus instance needs to be created
+  # at least once to build it up
+  before(:all) do
+    prometheus = LLT::DbHandler::Prometheus
+    prometheus.new
+
+    # The following is mostly to satisfy Travis.
+    # These tests run on the DB itself, which we cannot build at Travis,
+    # therefore we set them pending.
+    unless prometheus.loaded?
+      pending('No connection to stem db possible')
+    end
+  end
+
+  let(:stats) { LLT::DbHandler::Prometheus::Stats.new }
 
   describe "#count" do
     it "returns the total number of db entries" do
@@ -11,7 +24,7 @@ describe LLT::DbHandler::Prometheus::Stats do
 
     it "returns the number 40000+ entries" do
       # stupid to test a concrete count, but let it scream
-      # if we have strangkly few entries
+      # if we have strangly few entries
       stats.count.should > 40000
     end
   end
