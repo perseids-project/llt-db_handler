@@ -16,6 +16,20 @@ Or install it yourself as:
 
     $ gem install llt-db_handler
 
+You will also want to install a proper postgresql adapter for the stem
+dictionary. You could add this to your Gemfile:
+
+```ruby
+  platform :ruby do
+    gem 'pg'
+  end
+
+  platform :jruby do
+    gem 'activerecord-jdbcpostgresql-adapter'
+  end
+```
+
+
 ## Usage
 
 The Prometheus Stem Dictionary comes with this gem. To use it make sure
