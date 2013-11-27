@@ -40,6 +40,10 @@ class LLT::DbHandler::Stub::StubEntries
       wsr(type: :adjective, nom: "laetus",    stem: "laet",       itype: 1, number_of_endings: 3)
       wsr(type: :adjective, nom: "ferus",     stem: "fer",        itype: 1, number_of_endings: 3)
 
+      wsr(type: :adjective, nom: "aestivus",  stem: "aestiv",     itype: 2, number_of_endings: 3)
+      wsr(type: :adjective, nom: "suavis",    stem: "suav",       itype: 3, number_of_endings: 2)
+
+
       wsr(type: :ethnic, stem: "Haedu", inflection_class: 1)
       wsr(type: :ethnic, stem: "Redon", inflection_class: 3)
 
