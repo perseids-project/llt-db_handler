@@ -11,7 +11,7 @@ namespace :db do
 
     desc 'Creates the stem database'
     task :create do
-      exec 'createdb -U prometheus -T template0 prometheus_stems'
+      exec 'createdb -U prometheus -h localhost -T template0 prometheus_stems'
     end
 
     desc 'Opens the psql console'
