@@ -2,14 +2,21 @@ namespace :db do
   namespace :prometheus do
     DUMP_FILE = 'lib/llt/db_handler/prometheus/db/prometheus_stems.dump'
 
-    desc 'Opens the psql console'
+    desc 'Opens a pry console with a prometheus instance preloaded as db'
     task :console do
-      exec 'psql -U prometheus prometheus_stems'
+      exec %{pry -e "require 'llt/db_handler/prometheus';
+                     db = LLT::DbHandler::Prometheus.new;
+                     puts 'A Prometheus instance is waiting for you in the variable db\!'; db"}
     end
 
     desc 'Creates the stem database'
     task :create do
       exec 'createdb -U prometheus -T template0 prometheus_stems'
+    end
+
+    desc 'Opens the psql console'
+    task :db_console do
+      exec 'psql -U prometheus prometheus_stems'
     end
 
     desc "Dumps the stem databases' contents to a psql dump file"
