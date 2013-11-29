@@ -49,8 +49,10 @@ class LLT::DbHandler::Stub::StubEntries
 
       wsr(type: :verb, pr: "ita",   pf: "itav",                 pf_composition: "v", itype: 1, dep: false, dir_objs: "", indir_objs: "")
       wsr(type: :verb, pr: "cana",  pf: "canav", ppp: "canat",  pf_composition: "v", itype: 1, dep: false, dir_objs: "", indir_objs: "")
-      wsr(type: :verb, pr: "mone",  pf: "monu",  ppp: "monit",  pf_composition: "v", itype: 2, dep: false, dir_objs: "", indir_objs: "")
+      wsr(type: :verb, pr: "mone",  pf: "monu",  ppp: "monit",  pf_composition: "u", itype: 2, dep: false, dir_objs: "", indir_objs: "")
+      wsr(type: :verb, pr: "move",  pf: "movi",  ppp: "mot",    pf_composition: "ablaut", itype: 2, dep: false, dir_objs: "", indir_objs: "")
       wsr(type: :verb, pr: "mitt",  pf: "mis",   ppp: "miss",   pf_composition: "s", itype: 3, dep: false, dir_objs: "", indir_objs: "")
+      wsr(type: :verb, pr: "viv",   pf: "vix",   ppp: "-",      pf_composition: "s", itype: 3, dep: false, dir_objs: "", indir_objs: "")
       wsr(type: :verb, pr: "audi",  pf: "audiv", ppp: "audit",  pf_composition: "v", itype: 4, dep: false, dir_objs: "", indir_objs: "")
       wsr(type: :verb, pr: "horta",              ppp: "hortat",                      itype: 1, dep: true , dir_objs: "", indir_objs: "")
 
