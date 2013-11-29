@@ -42,8 +42,8 @@ you have postgresql installed and a user called prometheus ready:
 Create the database and seed data:
 
 ```
-  rake prometheus:db:create
-  rake prometheus:db:seed
+  rake db:prometheus:create
+  rake db:prometheus:seed
 ```
 
 The database prometheus_stems will now be available.
