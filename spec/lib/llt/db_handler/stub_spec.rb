@@ -4,6 +4,11 @@ require 'llt/db_handler/stub'
 describe LLT::DbHandler::Stub do
   let(:db_stub) { LLT::DbHandler::Stub }
 
+  describe "#type" do
+    it "identifies the db_stub as stub" do
+      db_stub.new.type.should == :stub
+    end
+  end
   describe ".create_stem_stub" do
     it "creates a new stem stub" do
       db_stub.stems.clear

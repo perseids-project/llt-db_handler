@@ -3,6 +3,12 @@ require 'spec_helper'
 describe LLT::DbHandler::Prometheus do
   let(:db) { LLT::DbHandler::Prometheus.new }
 
+  describe "#type" do
+    it "returns :prometheus as its type" do
+      db.type.should == :prometheus
+    end
+  end
+
   describe "#connect" do
     it "connects to the Prometheus ActiveRecord environment" do
       db.stub(loaded?: false)

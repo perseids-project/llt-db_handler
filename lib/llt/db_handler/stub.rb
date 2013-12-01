@@ -23,6 +23,10 @@ module LLT
         end
       end
 
+      def type
+        :stub
+      end
+
       def look_up_stem(args)
         super
         stems.select do |stored_args|

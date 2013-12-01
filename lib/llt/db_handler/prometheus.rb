@@ -15,8 +15,10 @@ module LLT
 
       def_delegators :stats, :all_entries, :count, :lemma_list
 
+      attr_reader :type
+
       def initialize(cache: false)
-        @db_type = :prometheus
+        @type = :prometheus
         enable_cache if cache
         connect
       end
@@ -94,7 +96,7 @@ module LLT
                  when :verb      then hashify(entry, :pr, :pf, :ppp, :inflectable_class, :pf_composition, :deponens, :dir_objs, :indir_objs)
                  end
 
-          args ? StemBuilder.build(type, args, @db_type) : []
+          args ? StemBuilder.build(type, args, @type) : []
         end
       end
 
