@@ -1,20 +1,6 @@
 require 'spec_helper'
 
 describe LLT::DbHandler::Prometheus::Stats do
-  # Connection to db is lazy, a Prometheus instance needs to be created
-  # at least once to build it up
-  before(:all) do
-    prometheus = LLT::DbHandler::Prometheus
-    prometheus.new
-
-    # The following is mostly to satisfy Travis.
-    # These tests run on the DB itself, which we cannot build at Travis,
-    # therefore we set them pending.
-    unless prometheus.loaded?
-      pending('No connection to stem db possible')
-    end
-  end
-
   let(:stats) { LLT::DbHandler::Prometheus::Stats.new }
 
   describe "#count" do

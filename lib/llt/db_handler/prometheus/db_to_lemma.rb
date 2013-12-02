@@ -1,6 +1,6 @@
 module LLT
   module DbHandler
-    class Prometheus
+    class Prometheus < CommonDb
       module DbToLemma
         # to be included by Db classes, the module
         # is tightly coupled to them

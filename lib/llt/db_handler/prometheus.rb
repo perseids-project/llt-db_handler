@@ -8,6 +8,8 @@ module LLT
     class Prometheus < CommonDb
       extend Forwardable
 
+      require 'active_record'
+      require 'llt/db_handler/prometheus/db/models'
       require 'llt/db_handler/prometheus/stats'
 
       include Helpers::Constantize
@@ -20,25 +22,6 @@ module LLT
       def initialize(cache: false)
         @type = :prometheus
         enable_cache if cache
-        connect
-      end
-
-      def connect
-        load_prometheus unless loaded?
-      end
-
-      def load_prometheus
-        begin
-          require 'active_record'
-          # this is where the actual connection is established
-          require 'llt/db_handler/prometheus/db/models'
-        rescue LoadError => e
-          puts "DbHandler::Prometheus failed to connect: #{e}"
-        end
-      end
-
-      def loaded?
-        self.class.loaded?
       end
 
       def direct_lookup(table, string)
@@ -54,12 +37,6 @@ module LLT
       end
 
       private
-
-      def self.loaded?
-        if defined?(StemDatabase)
-          StemDatabase::Db.connection rescue false
-        end
-      end
 
       def new_lookup(args)
         table  = args[:type]

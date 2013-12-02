@@ -9,22 +9,6 @@ describe LLT::DbHandler::Prometheus do
     end
   end
 
-  describe "#connect" do
-    it "connects to the Prometheus ActiveRecord environment" do
-      db.stub(loaded?: false)
-      db.connect
-      StemDatabase::Db.connection.should be_true
-    end
-
-    it "does nothing if connection is already established" do
-      # actually the stub wouldn't be needed, connection status is tracked
-      # on the class level atm
-      db.stub(loaded?: true)
-      db.should_not_receive(:load_prometheus)
-      db.connect
-    end
-  end
-
   describe "#look_up_stem" do
     let(:query)  { { type: :noun, stem: "ros", stem_type: :stem} }
     let(:query2) { { type: :verb, stem: "ama", stem_type: :pr} }
