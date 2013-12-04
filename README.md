@@ -38,6 +38,7 @@ you have postgresql installed and a user called prometheus ready:
 ```
   psql
     create user prometheus with password 'admin'
+    alter user prometheus with create_db
 ```
 Create the database and seed data:
 
