@@ -7,7 +7,7 @@ module StemDatabase
 
     # this is generally not needed, but when deploying the app through
     # warbler and tomcat the program gets confused and wants the pg gem...
-    db['adapter'].append('jdbc') if RUBY_PLATFORM == 'java'
+    db['adapter'].prepend('jdbc') if RUBY_PLATFORM == 'java'
 
     establish_connection(db)
 
