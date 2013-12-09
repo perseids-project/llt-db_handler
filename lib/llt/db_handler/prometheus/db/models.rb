@@ -4,6 +4,11 @@ module StemDatabase
   class Db < ActiveRecord::Base
     self.abstract_class = true
     db = YAML::load(File.open(File.expand_path("../database.yml", __FILE__)))
+
+    # this is generally not needed, but when deploying the app through
+    # warbler and tomcat the program gets confused and wants the pg gem...
+    db['adapter'].append('jdbc') if RUBY_PLATFORM == 'java'
+
     establish_connection(db)
 
     include LLT::DbHandler::Prometheus::DbToLemma
