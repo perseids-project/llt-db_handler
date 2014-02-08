@@ -34,11 +34,13 @@ class LLT::DbHandler::Stub::StubEntries
 
       wsr(type: :persona,   nom: "Plato",     stem: "Platon",     itype: 3)
       wsr(type: :persona,   nom: "Solon",     stem: "Solon",      itype: 3)
+      wsr(type: :persona,   nom: "Paulinus",  stem: "Paulin",     itype: 2)
 
       wsr(type: :adjective, nom: "communis",  stem: "commun",     itype: 3, number_of_endings: 1)
       wsr(type: :adjective, nom: "diligens",  stem: "diligent",   itype: 3, number_of_endings: 1)
       wsr(type: :adjective, nom: "laetus",    stem: "laet",       itype: 1, number_of_endings: 3)
       wsr(type: :adjective, nom: "ferus",     stem: "fer",        itype: 1, number_of_endings: 3)
+      wsr(type: :adjective, nom: "bonus",     stem: "bon",        itype: 1, number_of_endings: 3)
 
       wsr(type: :adjective, nom: "aestivus",  stem: "aestiv",     itype: 1, number_of_endings: 3)
       wsr(type: :adjective, nom: "suavis",    stem: "suav",       itype: 3, number_of_endings: 2)
