@@ -1,6 +1,6 @@
 namespace :db do
   namespace :prometheus do
-    DUMP_FILE = 'lib/llt/db_handler/prometheus/db/prometheus_stems.dump'
+    DUMP_FILE = File.expand_path('../prometheus/db/prometheus_stems.dump', __FILE__)
 
     desc 'Opens a pry console with a prometheus instance preloaded as db'
     task :console do
