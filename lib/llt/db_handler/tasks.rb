@@ -25,8 +25,10 @@ namespace :db do
     end
 
     desc 'Loads the seed data - UNDUMPED CHANGES WILL BE LOST!'
-    task :seed do
-      exec "pg_restore --verbose --clean --no-acl --no-owner -h localhost -U prometheus -d prometheus_stems #{DUMP_FILE}"
+    task :seed, :host, :options do |t, args|
+      host = args[:host] || 'localhost'
+      opts = args[:options]
+      exec "pg_restore --verbose --clean --no-acl --no-owner -h #{host} -U prometheus -d prometheus_stems #{DUMP_FILE} #{opts}"
     end
   end
 end
