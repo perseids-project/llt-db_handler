@@ -10,8 +10,9 @@ namespace :db do
     end
 
     desc 'Creates the stem database'
-    task :create do
-      exec 'createdb -U prometheus -h localhost -T template0 prometheus_stems'
+    task :create, :host do |t, args|
+      host = args[:host] || 'localhost'
+      exec "createdb -U prometheus -h #{host} -T template0 prometheus_stems"
     end
 
     desc 'Opens the psql console'
