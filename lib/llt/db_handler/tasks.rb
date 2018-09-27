@@ -16,12 +16,12 @@ namespace :db do
 
     desc 'Opens the psql console'
     task :db_console do
-      exec 'psql -U prometheus prometheus_stems'
+      exec 'psql -U prometheus -h localhost prometheus_stems'
     end
 
     desc "Dumps the stem databases' contents to a psql dump file"
     task :dump do
-      exec "pg_dump -U prometheus -Fc prometheus_stems > #{DUMP_FILE}"
+      exec "pg_dump -U prometheus -h localhost -Fc prometheus_stems > #{DUMP_FILE}"
     end
 
     desc 'Loads the seed data - UNDUMPED CHANGES WILL BE LOST!'
